@@ -1,1 +1,46 @@
+/* Use this file to store your useful variables */
+/* This could be colors, fonts, or padding sizes! */
 
+
+a {
+  cursor: pointer;
+}
+body {
+  font-size: 1rem;
+  font-weight: 400;
+}
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+h3 {
+  font-size: 1.7rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.size-selector {
+  display: flex;
+  justify-content: center;
+}
+.size-selector button {
+ width: 2em;
+ height: 2em;
+ margin: 1%;
+ font-size: 1rem;
+ font-weight: 400;
+ border-radius: 10%;
+ border-color: #b63926;
+ background-color: #b63926;
+ color: white;
+ cursor: pointer;
+}
+.size-selector button.selected {
+ background-color: #cc8b81;
+ color: #b63926;
+ border-color: #cc8b81;
+}
+@media screen and (max-width: 499px) {
+  
+}
