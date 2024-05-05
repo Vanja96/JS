@@ -1,4 +1,4 @@
-
+import { API_JACKETS_URL } from "./constants.mjs";
 
 // Helper function to format price
 const formatPrice = (price) => {
