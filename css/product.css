@@ -1,1 +1,29 @@
+.product-detail-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+   margin-top: 50px;
+   margin-bottom: 50px;
+}
+#product-image {
+    width: 25vh;
+    margin: auto;
+}
+#product-title {
+    font-size: 2.3rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin: auto;
+}
+#product-price {
+    font-size: 2.5rem;
+    font-weight: 500;
+    letter-spacing: 5px;
+}
+#product-base-color {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin: auto;
+}
 
