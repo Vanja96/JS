@@ -91,6 +91,28 @@ margin-right: 70px;
 
 
   
+.cart-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  z-index: 100;
+}
+
+.cart-dropdown.active {
+  display: block;
+}
+
+.cart-item {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-summary {
+  padding: 10px;
+  border-top: 1px solid #eee;
+}
 
 
 
