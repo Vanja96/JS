@@ -12,7 +12,7 @@ async function getData() {
   }
 }
 
-// Filter buttons
+// -------------------------------
 
 const filterButtons = document.querySelectorAll('.filter-btn');
 document.body.addEventListener('click', function(event) {
@@ -32,9 +32,9 @@ async function createProductHTML(genderFilter = 'all') {
     }
 
     try {
-        const products = await getData(); // Make sure to define the getData function
+        const products = await getData(); 
 
-        productSection.innerHTML = ''; // Clear existing products before adding new ones
+        productSection.innerHTML = ''; 
 
         products
             .filter((product) => {
@@ -47,7 +47,7 @@ async function createProductHTML(genderFilter = 'all') {
                 const productArticle = document.createElement("article");
 
 
-// Product image with link
+// -------------------------------
 const productLink = document.createElement("a");
 productLink.href = `../product.html?id=${product.id}`;
         
@@ -59,23 +59,23 @@ productLink.appendChild(productImage);
 productArticle.appendChild(productLink);
 
 
-// Product title
+// -------------------------------
 const productTitle = document.createElement("h2");
 productTitle.textContent = product.title || 'Product Title';
 productArticle.appendChild(productTitle);
 
 
-// Product price
+// -------------------------------
 const productPrice = document.createElement("p");
 productPrice.textContent = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(product.price);
 productArticle.appendChild(productPrice);
 
 
-// Size selector
+// -------------------------------
 const sizeSelector = document.createElement("div");
 sizeSelector.classList.add('size-selector');
 
-// Add size buttons
+// -------------------------------
 ['S', 'M', 'L', 'XL'].forEach(size => {
     const sizeButton = document.createElement('button');
     sizeButton.textContent = size;
@@ -83,12 +83,12 @@ sizeSelector.classList.add('size-selector');
     sizeButton.addEventListener('click', () => {
         const isSelected = sizeButton.classList.contains('selected');
     
-        // Remove 'selected' class from all buttons
+        // -------------------------------
         sizeSelector.querySelectorAll('button').forEach(button => {
             button.classList.remove('selected');
         });
     
-        // If the button was not already selected, mark it as selected
+       // -------------------------------
         if (!isSelected) {
             sizeButton.classList.add('selected');
             console.log(`Selected size ${size} for product ${product.id}`);
@@ -96,7 +96,7 @@ sizeSelector.classList.add('size-selector');
             console.log(`Deselected size ${size} for product ${product.id}`);
         }
     
-        // You can store the selected size in a variable or perform any other necessary actions based on the selected size.
+    
     });
     
     
@@ -106,21 +106,21 @@ sizeSelector.classList.add('size-selector');
 productArticle.appendChild(sizeSelector);
 
 
-// Product base color
+// -------------------------------
 const productBaseColor = document.createElement("h5");
 productBaseColor.textContent = product.baseColor || 'Base Color';
 productArticle.appendChild(productBaseColor);
 
 
-//--------------------
+// -------------------------------
 productSection.appendChild(productArticle);
     });
 } catch (error) {
 console.error("Error creating product HTML:", error);
-// Optionally, display an error message to the user here.
+
 }
 }
 
-createProductHTML(); // Call the function when the page loads
+createProductHTML(); 
 
 
