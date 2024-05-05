@@ -1,1 +1,89 @@
+.product-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.product-text h2 {
+    letter-spacing: 8px;
+}
+.product-text p {
+    font-size: 1.2rem;
+    width: 70%;
+    margin-bottom: 0;
+}
+.product-text h6 {
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.jackets {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    width: 80%;
+ }
+ .jackets article {
+     width: calc(25% - 5%);
+     margin-bottom: 5%;
+     background-color: white;
+     text-align: center;
+     border-radius: 1em;
+     height: 50vh;
+     padding: 1%;
+     align-content: center;
+     border: solid 1px #a7a7a7;
+ }
+ .jackets article h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+ }
+ .jackets article p {
+    font-size: 1.3rem;
+    font-weight: 600;
+ }
+ .jackets article h5 {
+    font-size: 1rem;
+    font-weight: 400;
+ }
+
+
+ .jackets article img {
+     width: 15vh;
+     height: 20vh;
+ }
+ #productSection {
+     width: 100%;
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+ 
+ }
+ #filters {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 100px;
+    column-gap: 2%;
+ }
+ .filter-btn {
+    width: 200px;
+    height: 50px;
+    font-size: 1.2rem;
+    letter-spacing: 5px;
+    border-radius: 7px;
+    cursor: pointer;
+    background-color: #b63926;
+    color: white;
+    border: none;
+ }
+ .filter-btn:hover {
+    color: #cc8b81;
+ }
+
+ @media screen and (max-width: 600px) {
+  
+ 
+ }
+ 
+
 
