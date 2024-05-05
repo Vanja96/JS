@@ -1,5 +1,4 @@
-import { getCart, removeFromCart, incrementQuantity, decrementQuantity } from './cartUtils.mjs';
-import { showLoader, hideLoader } from './loader.mjs';
+
 
 // Helper function to format price
 const formatPrice = (price) => {
@@ -57,13 +56,13 @@ const createCartItemElement = (item) => {
 };
 
 // Improved displayCartItems function
-function displayCartItems() {
-  showLoader();
+function displayCartItems(itemDetalis) {
+  showLoader('./loader.mjs');
   const cartItemsContainer = document.getElementById('cart-items');
   cartItemsContainer.innerHTML = '';
 
   const checkoutButton = document.getElementById('checkout-button');
-  const cart = getCart();
+  const cart = getCart('.cartUtils.mjs');
   let totalPrice = 0;
 
   if (cart.length === 0) {
@@ -99,7 +98,7 @@ document.getElementById('cart-items').addEventListener('click', (event) => {
   } else if (event.target.matches('.remove-button')) {
     removeFromCart(itemId);
   }
-  displayCartItems(); // Re-render the cart items to reflect the changes
+  displayCartItems('cart-items'); // Re-render the cart items to reflect the changes
 });
 
 // Variable declarations for cart icon and dropdown
