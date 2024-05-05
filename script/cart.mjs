@@ -89,7 +89,7 @@ function displayCartItems() {
   hideLoader();
 }
 
-// Event delegation for cart items container
+// Event listener for cart items container
 document.getElementById('cart-items').addEventListener('click', (event) => {
   const itemId = event.target.dataset.itemId;
   if (event.target.matches('.increment-button')) {
@@ -102,5 +102,42 @@ document.getElementById('cart-items').addEventListener('click', (event) => {
   displayCartItems(); // Re-render the cart items to reflect the changes
 });
 
-// Call displayCartItems when the page loads
-document.addEventListener('DOMContentLoaded', displayCartItems);
+// Variable declarations for cart icon and dropdown
+const cartIcon = document.getElementById('cart-icon');
+const cartDropdown = document.getElementById('cart-dropdown');
+const cart = document.querySelector('.cart');
+
+const translateY = (element, pixels) => {
+  element.style.transform = `translateY(${pixels}px)`;
+};
+
+// Function to save cart items to local storage
+const saveCartToLocalStorage = (cart) => {
+  localStorage.setItem('cartItems', JSON.stringify(cart));
+};
+
+// Function to get cart items from local storage
+const getCartFromLocalStorage = () => {
+  const cartItems = localStorage.getItem('cartItems');
+  return cartItems ? JSON.parse(cartItems) : [];
+};
+
+// Event listener for cart icon click
+cartIcon.addEventListener('click', (event) => {
+  event.stopPropagation(); // Prevents click from propagating to other elements
+  cartDropdown.classList.toggle('active');
+});
+
+// Close the cart dropdown if the user clicks outside of it
+document.addEventListener('click', (event) => {
+  if (!cart.contains(event.target)) {
+    cartDropdown.classList.remove('active');
+  }
+});
+
+// Prevent closing the dropdown when clicking inside of it
+cartDropdown.addEventListener('click', (event) => {
+  event.stopPropagation();
+});
+
+// Call displayCartItems
