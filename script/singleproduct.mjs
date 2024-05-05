@@ -1,7 +1,6 @@
 // Import the constant for API URL
 import { API_JACKETS_URL } from "./constants.mjs";
 
-
 // Function to get the product ID from the URL query string
 function getProductIdFromUrl() {
     const queryParams = new URLSearchParams(window.location.search);
@@ -71,6 +70,29 @@ async function populateProductDetails() {
 
         sizeSelector.appendChild(sizeButton);
     });
+
+    // Add to Cart functionality
+    const addToCartButton = document.getElementById('add-to-cart');
+    addToCartButton.addEventListener('click', addToCart);
+
+    function addToCart() {
+        const selectedSize = getSelectedSize();
+
+        if (!selectedSize) {
+            console.log('Please select a size before adding to cart');
+            return;
+        }
+
+        // Here you can add the selected product to the cart
+        const product = {
+            id: getProductIdFromUrl(),
+            size: selectedSize,
+            // Add other product details if needed
+        };
+
+        console.log('Product added to cart:', product);
+        // You can implement the logic to add the product to the cart here
+    }
 }
 
 // Function to get the selected size from the UI
@@ -79,12 +101,6 @@ function getSelectedSize() {
     return selectedButton ? selectedButton.textContent : null;
 }
 
-// Function to get the selected color from the UI
-function getSelectedColor() {
-    // Example implementation, adjust based on your actual UI structure
-    const selectedColorInput = document.querySelector('input[name="color"]:checked');
-    return selectedColorInput ? selectedColorInput.value : null;
-}
 
 
 // Call the function to populate the product details when the page loads
@@ -93,4 +109,3 @@ populateProductDetails();
 document.addEventListener('DOMContentLoaded', (event) => {
     // Your code to run after the DOM is fully loaded
 });
-
